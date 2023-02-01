@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // запраишвает типизацию везде, разрешает ставить эни
+    "noImplicitAny": true,
+    // тип используемой модульной сборки, на бэке можно использовать commonJS
+    "module": "ESNext",
+    // в какой язык компилируется сборка для поддержки большинства браузеров
+    "target": "es5",
+    // позволяет распознавать реакт
+    "jsx": "react-jsx",
+    // говорит обрабатывать не только ts, но и js файлы
+    "allowJs": true,
+    "moduleResolution": "node",
+    // позволяет работать с пакетами, использующими modules.exports и require (commonjs), в es6 синтаксисе с импортами и экспортами
+    "esModuleInterop": true,
+    // нужен для поддержки дефолтного импорта из библиотек, которые его не поддерживают
+    // вместо import * as React from 'react' можно писать import React from 'react'
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
