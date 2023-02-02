@@ -1,7 +1,7 @@
-import { BuildOptions } from './types/config';
+import { IBuildOptions} from './types/config';
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server"
 
-export function buildDevServer(options: BuildOptions): DevServerConfiguration {
+export function buildDevServer(options: IBuildOptions): DevServerConfiguration {
   return {
     historyApiFallback: true,
     open: true,
