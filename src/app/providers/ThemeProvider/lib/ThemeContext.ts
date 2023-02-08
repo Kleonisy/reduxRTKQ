@@ -1,10 +1,13 @@
 import { createContext } from 'react'
 
-export type TTheme = 'light' | 'dark'
+export enum Theme {
+  LIGHT = 'light',
+  DARK = 'dark'
+}
 
 export interface IThemeContextProps {
-  theme?: TTheme
-  setTheme?: (theme: TTheme) => void
+  theme?: Theme
+  setTheme?: (theme: Theme) => void
 }
 
 export const ThemeContext = createContext<IThemeContextProps>({})
