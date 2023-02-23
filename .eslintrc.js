@@ -16,11 +16,13 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
+    'i18next',
     'react',
     '@typescript-eslint',
   ],
   rules: {
     'function-paren-newline': ['error', 'consistent'],
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
     'implicit-arrow-linebreak': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'warn',
