@@ -15,5 +15,5 @@ export const useTheme = (): IUseThemeResult => {
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
   }
 
-  return { toggleTheme, theme }
+  return { theme, toggleTheme }
 }

@@ -4,21 +4,21 @@ import { IBuildOptions } from './types/config'
 
 export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
   const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
     exclude: /node_modules/,
+    test: /\.(js|jsx|tsx)$/,
     use: {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env'],
         plugins: [
           [
             'i18next-extract',
             {
-              locales: ['ru', 'en'],
               keyAsDefaultValue: true,
+              locales: ['ru', 'en'],
             },
           ],
         ],
+        presets: ['@babel/preset-env'],
       },
     },
   }
@@ -60,9 +60,9 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
   }
 
   const typescriptLoader = {
+    exclude: /node_modules/,
     test: /\.tsx?$/,
     use: 'ts-loader',
-    exclude: /node_modules/,
   }
 
   return [

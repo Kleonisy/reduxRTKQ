@@ -8,8 +8,8 @@ import { buildDevServer } from './buildDevServer'
 export function buildWebpackConfig(options: IBuildOptions): webpack.Configuration {
   const { isDev, mode, paths } = options
   return {
-    devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
+    devtool: isDev ? 'inline-source-map' : undefined,
     entry: paths.entry,
     mode,
     module: {
