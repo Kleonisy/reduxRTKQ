@@ -7,6 +7,6 @@ export function buildResolvers(options: IBuildOptions): ResolveOptions {
     extensions: ['.tsx', '.ts', '.js'],
     mainFiles: ['index'],
     modules: [options.paths.src, 'node_modules'],
-    preferAbsolute: true,
+    preferAbsolute: true
   }
 }

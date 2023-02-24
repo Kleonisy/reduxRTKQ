@@ -2,25 +2,36 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb',
+    'airbnb'
   ],
+  globals: {
+    __IS__DEV__: true
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: [
     'i18next',
     'react',
-    '@typescript-eslint',
+    '@typescript-eslint'
   ],
   rules: {
+    'comma-dangle': ['error', {
+      arrays: 'never',
+      exports: 'never',
+      functions: 'never',
+      imports: 'never',
+      objects: 'never'
+    }],
     'function-paren-newline': ['error', 'consistent'],
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'implicit-arrow-linebreak': 'off',
@@ -41,9 +52,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
     semi: ['error', 'never'],
-    'sort-keys': 'error',
-  },
-  globals: {
-    __IS__DEV__: true,
-  },
+    'sort-keys': 'error'
+  }
 }

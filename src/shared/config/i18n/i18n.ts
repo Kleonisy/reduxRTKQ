@@ -10,14 +10,14 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
     },
     debug: __IS__DEV__,
     fallbackLng: 'ru',
 
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
-    },
+      escapeValue: false // not needed for react as it escapes by default
+    }
   })
 
 export default i18n

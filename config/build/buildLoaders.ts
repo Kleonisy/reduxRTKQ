@@ -14,13 +14,13 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
             'i18next-extract',
             {
               keyAsDefaultValue: true,
-              locales: ['ru', 'en'],
-            },
-          ],
+              locales: ['ru', 'en']
+            }
+          ]
         ],
-        presets: ['@babel/preset-env'],
-      },
-    },
+        presets: ['@babel/preset-env']
+      }
+    }
   }
 
   const cssLoader = {
@@ -36,33 +36,33 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
             auto: (resPath: string) => resPath.includes('.module.'),
             localIdentName: isDev
               ? '[path][name]__[local]--[hash:base64:5]'
-              : '[hash:base64:8]',
-          },
-        },
+              : '[hash:base64:8]'
+          }
+        }
       },
       // Compiles Sass to CSS
-      'sass-loader',
-    ],
+      'sass-loader'
+    ]
   }
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
     use: [
       {
-        loader: 'file-loader',
-      },
-    ],
+        loader: 'file-loader'
+      }
+    ]
   }
 
   const svgLoader = {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: ['@svgr/webpack']
   }
 
   const typescriptLoader = {
     exclude: /node_modules/,
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: 'ts-loader'
   }
 
   return [
@@ -70,6 +70,6 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
     cssLoader,
     fileLoader,
     svgLoader,
-    typescriptLoader,
+    typescriptLoader
   ]
 }
