@@ -11,6 +11,14 @@ module.exports = {
   globals: {
     __IS__DEV__: true
   },
+  overrides: [
+    {
+      files: ['**src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
+    }
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -33,7 +41,13 @@ module.exports = {
       objects: 'never'
     }],
     'function-paren-newline': ['error', 'consistent'],
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        ignoreAttribute: ['data-testid', 'to'],
+        markupOnly: true
+      }
+    ],
     'implicit-arrow-linebreak': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'warn',

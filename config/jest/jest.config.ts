@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path'
+
 export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -83,6 +85,13 @@ export default {
     'json',
     'node'
   ],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
+  modulePaths: [
+    '<rootDir>src'
+  ],
 
   // A map from regular expressions to module names or to arrays
   // of module names that allow to stub out resources with a single module
@@ -136,7 +145,7 @@ export default {
 
   // A list of paths to modules that run some code
   // to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
 
   // The number of seconds after which a test
   // is considered as slow and reported as such in the results.
