@@ -9,7 +9,7 @@ export default {
     backgroundColor: { control: 'color' }
   },
   component: Loader,
-  title: 'widget/Loader'
+  title: 'shared/Loader'
 } as ComponentMeta<typeof Loader>
 
 const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />

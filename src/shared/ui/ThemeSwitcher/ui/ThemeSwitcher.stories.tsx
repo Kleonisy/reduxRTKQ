@@ -9,7 +9,7 @@ export default {
     backgroundColor: { control: 'color' }
   },
   component: ThemeSwitcher,
-  title: 'widget/ThemeSwitcher'
+  title: 'shared/ThemeSwitcher'
 } as ComponentMeta<typeof ThemeSwitcher>
 
 const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (

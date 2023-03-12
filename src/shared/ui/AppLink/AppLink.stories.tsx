@@ -12,7 +12,7 @@ export default {
     backgroundColor: { control: 'color' }
   },
   component: AppLink,
-  title: 'widget/AppLink'
+  title: 'shared/AppLink'
 } as ComponentMeta<typeof AppLink>
 
 const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />

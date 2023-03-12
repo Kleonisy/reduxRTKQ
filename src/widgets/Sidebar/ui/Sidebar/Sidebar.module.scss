@@ -6,8 +6,24 @@
   transition: width 0.3s;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
+.icon {
+  fill: var(--inverted-seconday-color);
+}
+.item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.link {
+  margin-left: 10px;
+  opacity: 1;
+  transition: 0.4s;
 }
 
 .switchers {
@@ -20,4 +36,32 @@
 
 .lang {
   margin-left: 20px;
+}
+
+.collapseBtn {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+  .item {
+    height: 24px;
+  }
+  .lang {
+    margin-left: 0;
+  }
+
+  .switchers {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .link {
+    opacity: 0;
+    transition: 0.2s opacity;
+    white-space: nowrap;
+    width: 0;
+  }
 }
