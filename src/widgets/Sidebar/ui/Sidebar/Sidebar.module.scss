@@ -9,17 +9,20 @@
 .icon {
   fill: var(--inverted-seconday-color);
 }
+
 .item {
   display: flex;
   align-items: center;
   margin-top: 10px;
 }
+
 .items {
   display: flex;
   flex-direction: column;
   margin-left: 30px;
   margin-top: 20px;
 }
+
 .link {
   margin-left: 10px;
   opacity: 1;
@@ -46,9 +49,11 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+
   .item {
     height: 24px;
   }
+
   .lang {
     margin-left: 0;
   }
