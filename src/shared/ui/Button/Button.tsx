@@ -1,12 +1,16 @@
-import { classNames } from 'shared/lib/classNames/classNames'
+// packages
 import { ButtonHTMLAttributes, FC } from 'react'
+// utils
+import { classNames } from 'shared/lib/classNames/classNames'
+// styles
 import cls from './Button.module.scss'
 
 export enum ThemeButton {
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
   CLEAR = 'clear',
-  OUTLINE = 'outline'
+  CLEAR_INVERTED = 'clearInverted',
+  OUTLINE = 'outline',
 }
 export enum ButtonSize {
   M = 'size_m',

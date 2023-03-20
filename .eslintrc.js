@@ -13,9 +13,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**src/**/*.test.{ts,tsx}'],
+      files: ['**src/**/*.{test,stories}.{ts,tsx}'],
       rules: {
-        'i18next/no-literal-string': 'off'
+        'i18next/no-literal-string': 'off',
+        'max-len': 'off'
       }
     }
   ],
@@ -30,6 +31,7 @@ module.exports = {
   plugins: [
     'i18next',
     'react',
+    'react-hooks',
     '@typescript-eslint'
   ],
   rules: {
@@ -54,6 +56,8 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     indent: [2, 2],
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
     'no-promise-executor-return': 'warn',
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',
@@ -65,6 +69,8 @@ module.exports = {
     'react/jsx-props-no-spreading': 'warn',
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
+    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'error',
     semi: ['error', 'never'],
     'sort-keys': 'error'
   }
