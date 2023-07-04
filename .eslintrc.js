@@ -58,6 +58,7 @@ module.exports = {
     indent: [2, 2],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'no-param-reassign': 'off',
     'no-promise-executor-return': 'warn',
     'no-shadow': 'off',
     'no-underscore-dangle': 'off',

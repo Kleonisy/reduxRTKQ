@@ -9,5 +9,7 @@
   "Выкинуть тестовую ошибку": "Throw test error",
   "Переключатель": "Toggle",
   "О нас": "About",
-  "Главная страница": "Main page"
+  "Главная страница": "Main page",
+  "decrement": "decrement",
+  "increment": "increment"
 }
