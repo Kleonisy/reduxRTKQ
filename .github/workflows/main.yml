@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 jobs:
   pipeline:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 17.x ]
@@ -34,6 +34,9 @@ jobs:
       - name: Storybook build
         if: always()
         run: npm run storybook:build
+      - name: Prepare docker
+        if: always()
+        run: docker pull yukinying/chrome-headless-browser-stable:100.0.4896.127
       - name: UI screenshot testing
         if: always()
         run: npm run test:ui:ci
