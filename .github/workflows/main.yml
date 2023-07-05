@@ -34,6 +34,9 @@ jobs:
       - name: Storybook build
         if: always()
         run: npm run storybook:build
+      - name: Pull Docker
+        if: always()
+        run: docker pull
       - name: UI screenshot testing
         if: always()
         run: npm run test:ui:ci
