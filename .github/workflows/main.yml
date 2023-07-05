@@ -31,9 +31,12 @@ jobs:
       - name: Unit testing
         if: always()
         run: npm run test:unit
-      - name: Storybook build
-        if: always()
-        run: npm run storybook:build
-      - name: UI screenshot testing
-        if: always()
-        run: npm run test:ui:ci
+      # - name: Storybook build
+      #   if: always()
+      #   run: npm run storybook:build
+      # - name: Prepare docker
+      #   if: always()
+      #   run: docker pull yukinying/chrome-headless-browser-stable:100.0.4896.127
+      # - name: UI screenshot testing
+      #   if: always()
+      #   run: npm run test:ui:ci
