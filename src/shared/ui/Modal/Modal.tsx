@@ -1,5 +1,4 @@
 // packages
-import { useTheme } from 'app/providers/ThemeProvider'
 import React, {
   ReactNode, useCallback, useEffect, useRef, useState
 } from 'react'
@@ -14,6 +13,7 @@ interface ModalProps {
   children?: ReactNode
   className?: string
   isOpen?: boolean
+  lazy?: boolean
   onClose?: () => void
 }
 
@@ -24,9 +24,10 @@ export const Modal = (props: ModalProps) => {
     children,
     className,
     isOpen,
+    lazy,
     onClose
   } = props
-  const { theme } = useTheme()
+
   const [isClosing, setIsClosing] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -63,12 +64,13 @@ export const Modal = (props: ModalProps) => {
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing,
-    [cls[theme]]: true
+    [cls.isClosing]: isClosing
   }
+
+  if (lazy && !isOpen) return null
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [className])}>
+      <div className={classNames(cls.modal, mods, [className, 'app_modal'])}>
         <div
           className={cls.overlay}
           onClick={closeHandler}

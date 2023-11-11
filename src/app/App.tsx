@@ -1,7 +1,6 @@
 // packages
 import { Suspense } from 'react'
 // components
-import { useTheme } from 'app/providers/ThemeProvider'
 import { AppRouter } from 'app/providers/router'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
@@ -9,10 +8,8 @@ import { Sidebar } from 'widgets/Sidebar'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 export function App() {
-  const { theme } = useTheme()
-
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames('app', {}, [])}>
       <Suspense
         // eslint-disable-next-line i18next/no-literal-string
         fallback="...Loading"
