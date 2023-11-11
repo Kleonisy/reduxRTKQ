@@ -13,6 +13,7 @@ interface ModalProps {
   children?: ReactNode
   className?: string
   isOpen?: boolean
+  lazy?: boolean
   onClose?: () => void
 }
 
@@ -23,6 +24,7 @@ export const Modal = (props: ModalProps) => {
     children,
     className,
     isOpen,
+    lazy,
     onClose
   } = props
 
@@ -64,6 +66,8 @@ export const Modal = (props: ModalProps) => {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing
   }
+
+  if (lazy && !isOpen) return null
   return (
     <Portal>
       <div className={classNames(cls.modal, mods, [className, 'app_modal'])}>
