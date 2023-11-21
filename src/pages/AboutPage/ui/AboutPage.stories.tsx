@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import AboutPage from './AboutPage'
 
@@ -16,4 +16,4 @@ const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />
 
 export const AboutPageLight = Template.bind({})
 export const AboutPageDark = Template.bind({})
-AboutPageDark.decorators = [themeDecorator(Theme.DARK)]
+AboutPageDark.decorators = [ThemeDecorator(Theme.DARK)]
