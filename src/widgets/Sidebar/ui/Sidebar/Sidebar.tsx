@@ -34,17 +34,17 @@ export const Sidebar = ({ className }: ISidebarProps) => {
         className={cls.collapseBtn}
         data-testid="SidebarToggleButton"
         onClick={onToggle}
-        theme={ThemeButton.BACKGROUND_INVERTED}
         size={ButtonSize.L}
         square
+        theme={ThemeButton.BACKGROUND_INVERTED}
       >
         {collapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
         <AppLink
           className={cls.item}
-          to={RoutePath.main}
           theme={AppLinkTheme.SECONDARY}
+          to={RoutePath.main}
         >
           <MainIcon className={cls.icon} />
           <span className={cls.link}>
@@ -53,8 +53,8 @@ export const Sidebar = ({ className }: ISidebarProps) => {
         </AppLink>
         <AppLink
           className={cls.item}
-          to={RoutePath.about}
           theme={AppLinkTheme.SECONDARY}
+          to={RoutePath.about}
         >
           <AboutIcon className={cls.icon} />
           <span className={cls.link}>

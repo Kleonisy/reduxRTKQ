@@ -1,5 +1,5 @@
 import path from 'path'
-import webpack from 'webpack'
+import webpack, { DefinePlugin } from 'webpack'
 import { IBuildPaths } from '../build/types/config'
 import { buildCssLoader } from '../build/loaders/buildCssLoader'
 
@@ -19,7 +19,7 @@ export default ({ config }: { config: webpack.Configuration}) => {
     return rule
   })
 
-  config.resolve.modules.push(paths.src)
+  config.resolve.modules?.unshift(paths.src)
   config.resolve.extensions.push('.ts', '.tsx')
   config.module.rules.push(buildCssLoader(true))
   config.module.rules.push(
@@ -28,6 +28,10 @@ export default ({ config }: { config: webpack.Configuration}) => {
       use: ['@svgr/webpack']
     }
   )
+
+  config.plugins?.push(new DefinePlugin({
+    __IS__DEV__: true
+  }))
 
   return config
 }

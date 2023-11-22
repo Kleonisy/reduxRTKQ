@@ -1,7 +1,8 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { Navbar } from './Navbar'
 
 export default {
@@ -15,6 +16,17 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
 
 export const NavbarLight = Template.bind({})
+NavbarLight.decorators = [StoreDecorator({})]
 
 export const NavbarDark = Template.bind({})
-NavbarDark.decorators = [themeDecorator(Theme.DARK)]
+NavbarDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+
+export const NavbarLoggedIn = Template.bind({})
+NavbarLoggedIn.decorators = [StoreDecorator({
+  user: {
+    userAuthData: {
+      id: '1',
+      username: 'asdf'
+    }
+  }
+})]

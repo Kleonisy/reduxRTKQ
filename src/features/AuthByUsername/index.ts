@@ -1,1 +1,5 @@
 export { LoginModal } from './ui/LoginModal/LoginModal'
+export { LoginSchema } from './model/types/LoginSchema'
+export { loginReducer } from './model/slice/LoginSlice'
+export { loginByUsername } from './model/services/loginByUsername/loginByUsername'
+export { getLoginState } from './model/selectors/getLoginState/getLoginState'

@@ -11,5 +11,11 @@
   "О нас": "About",
   "Главная страница": "Main page",
   "decrement": "decrement",
-  "increment": "increment"
+  "increment": "increment",
+  "Введите логин": "Enter login",
+  "Введите пароль": "Enter password",
+  "Войти": "Log in",
+  "Выйти": "Log out",
+  "Вы ввели неверный логин или пароль": "Incorrect login or password",
+  "Форма авторизации": "Authorization form"
 }

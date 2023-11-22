@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ErrorPage } from './ErrorPage'
 
@@ -17,4 +17,4 @@ const Template: ComponentStory<typeof ErrorPage> = (args) => <ErrorPage {...args
 export const ErrorPageLight = Template.bind({})
 
 export const ErrorPageDark = Template.bind({})
-ErrorPageDark.decorators = [themeDecorator(Theme.DARK)]
+ErrorPageDark.decorators = [ThemeDecorator(Theme.DARK)]

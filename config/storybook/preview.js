@@ -1,8 +1,9 @@
 import { addDecorator } from '@storybook/react'
-import { styleDecorator } from '../../src/shared/config/storybook/styleDecorator/styleDecorator'
-import { themeDecorator } from '../../src/shared/config/storybook/themeDecorator/themeDecorator'
+import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
+import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator'
+
 import { Theme } from '../../src/app/providers/ThemeProvider'
-import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +15,6 @@ export const parameters = {
   }
 }
 
-addDecorator(styleDecorator)
-addDecorator(themeDecorator(Theme.LIGHT))
-addDecorator(routerDecorator)
+addDecorator(StyleDecorator)
+addDecorator(ThemeDecorator(Theme.LIGHT))
+addDecorator(RouterDecorator)

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import { Button, ButtonSize, ThemeButton } from './Button'
 
@@ -53,7 +53,7 @@ ButtonOutlineDark.args = {
   children: 'Text Outline Dark',
   theme: ThemeButton.OUTLINE
 }
-ButtonOutlineDark.decorators = [themeDecorator(Theme.DARK)]
+ButtonOutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const ButtonBackgroundTheme = Template.bind({})
 ButtonBackgroundTheme.args = {
@@ -88,4 +88,11 @@ ButtonSquareSizeXL.args = {
   size: ButtonSize.XL,
   square: true,
   theme: ThemeButton.BACKGROUND_INVERTED
+}
+
+export const ButtonDisabled = Template.bind({})
+ButtonDisabled.args = {
+  children: '>',
+  disabled: true,
+  theme: ThemeButton.OUTLINE
 }
