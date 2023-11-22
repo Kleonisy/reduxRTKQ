@@ -3,9 +3,10 @@ import {
 } from '@reduxjs/toolkit'
 import { counterReducer } from 'entities/Counter'
 import { userActions, userReducer } from 'entities/User'
-import { loginByUsername, loginReducer } from 'features/AuthByUsername'
+import { loginByUsername } from 'features/AuthByUsername'
 import { AUTH_LOCALSTORAGE_TOKEN } from 'shared/constants/constants'
 import { StateSchema } from './StateSchema'
+import { createReducerManager } from './reducerManager'
 
 const isLoggedIn = isFulfilled(loginByUsername)
 const isLoggedOut = isAnyOf(userActions.logout)
@@ -17,16 +18,27 @@ const authMiddleware = (store: Store) => (next: (action: Action) => void) => (ac
   next(action)
 }
 
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) {
   const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
-    loginForm: loginReducer,
     user: userReducer
   }
-  return configureStore<StateSchema>({
+
+  const reducerManager = createReducerManager(rootReducers)
+
+  const store = configureStore<StateSchema>({
     devTools: __IS__DEV__,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authMiddleware) as any,
     preloadedState: initialState,
-    reducer: rootReducers
+    reducer: reducerManager.reduce
   })
+
+  // @ts-ignore
+  store.reducerManager = reducerManager
+
+  return store
 }
