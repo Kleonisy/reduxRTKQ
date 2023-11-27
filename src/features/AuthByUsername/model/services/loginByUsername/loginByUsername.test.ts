@@ -2,6 +2,7 @@ import axios from 'axios'
 import { StateSchema } from 'app/providers/StoreProvider'
 import { Dispatch } from '@reduxjs/toolkit'
 import { userActions } from 'entities/User'
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 import { loginByUsername } from './loginByUsername'
 
 jest.mock('axios')
@@ -23,21 +24,22 @@ describe('loginByUsername test', () => {
       username: 'admin'
     }
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: mockUserValue }))
-    const actionCreator = loginByUsername({ password: '123', username: '123' })
-    const result = await actionCreator(dispatch, getState, undefined)
 
-    expect(dispatch).toHaveBeenCalledTimes(3)
-    expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(mockUserValue))
-    expect(dispatch).toHaveBeenCalled()
+    const thunkWrapper = new TestAsyncThunk(loginByUsername)
+    const result = await thunkWrapper.thunkCall({ password: '123', username: '123' })
+
+    expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(3)
+    expect(thunkWrapper.dispatch).toHaveBeenCalledWith(userActions.setAuthData(mockUserValue))
+    expect(thunkWrapper.dispatch).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('fulfilled')
   })
   test('error login', async () => {
     mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
-    const actionCreator = loginByUsername({ password: '123', username: '123' })
-    const result = await actionCreator(dispatch, getState, undefined)
+    const thunkWrapper = new TestAsyncThunk(loginByUsername)
+    const result = await thunkWrapper.thunkCall({ password: '123', username: '123' })
 
-    expect(dispatch).toHaveBeenCalledTimes(2)
-    expect(dispatch).toHaveBeenCalled()
+    expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(2)
+    expect(thunkWrapper.dispatch).toHaveBeenCalled()
     expect(result.meta.requestStatus).toEqual('rejected')
     expect(result.payload).toEqual('error')
     console.log(result, 'result')
