@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
@@ -6,10 +6,13 @@ import { Input } from 'shared/ui/Input/Input'
 import { useDispatch, useSelector } from 'react-redux'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { ReducersList, useAsyncReducer } from 'shared/lib/useAsyncReducer.ts/useAsyncReducer'
+import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError'
+import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword/getLoginPassword'
+import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import { loginActions, loginReducer } from '../../model/slice/LoginSlice'
 import cls from './LoginForm.module.scss'
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
 
 interface LoginFormProps {
   className?: string
@@ -22,12 +25,10 @@ const initialReducers: ReducersList = {
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const {
-    error,
-    isLoading,
-    username,
-    password
-  } = useSelector(getLoginState) || {}
+  const error = useSelector(getLoginError)
+  const isLoading = useSelector(getLoginIsLoading)
+  const password = useSelector(getLoginPassword)
+  const username = useSelector(getLoginUsername)
 
   useAsyncReducer({ reducers: initialReducers })
 
